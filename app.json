@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "dGit",
+    "slug": "dGit",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icons/dGitIconGreen.png",
+    "scheme": "dgit",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./src/assets/icons/dGitIconGreen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icons/dGitIconGreen.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/icons/dGitIconGreen.png"
+    },
+    "description": ""
+  }
+}
