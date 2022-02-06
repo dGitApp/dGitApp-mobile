@@ -18,21 +18,22 @@ const LoginScreen = ({navigation}) => {
     const [account, setAccount] = useState("");
 
     const connectWallet = React.useCallback(() => {
-        // alert('connect wallet')
-        navigation.navigate('Home')
         return connector.connect();
     }, [connector]);
     
     useEffect(() => {
         if (connector?.accounts?.length > 0) {
           setAccount(connector.accounts[0])
+          console.log('Log-In')
+          console.log(account)
+          navigation.navigate('Home')
         }
     }, [connector]);
     
-    const killSession = React.useCallback(() => {
-        setAccount("")
-        return connector.killSession();
-    }, [connector]);
+    // const killSession = React.useCallback(() => {
+    //     setAccount("")
+    //     return connector.killSession();
+    // }, [connector]);
     
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

@@ -1,8 +1,13 @@
 import { AntDesign } from '@expo/vector-icons';
 import React, {useLayoutEffect} from 'react';
 import {Platform, Pressable, SafeAreaView, StyleSheet, Text} from 'react-native';
+import { useWalletConnect } from '@walletconnect/react-native-dapp';
+
+
 
 export default function SettingsScreen({navigation}) {
+
+  const connector = useWalletConnect();
 
   useLayoutEffect (() => {
     navigation.setOptions({
@@ -22,15 +27,14 @@ export default function SettingsScreen({navigation}) {
             <Text style = {{marginHorizontal: 5, fontSize: 15}}>Login</Text>
           </Pressable>
         )
-      })
-}, [])
+    })
+  }, [])
 
-    const logout = () => {
-        alert("sign out")
-     }
-
-    return (
-    
+  const logout = () => {
+    alert('sign out')
+  }
+  
+  return (
     <SafeAreaView style = {styles.page}>
         <Pressable onPress = {logout} style = {styles.logoutButton}>
             <Text> Sign Out </Text>
