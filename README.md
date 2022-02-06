@@ -1,7 +1,6 @@
-# dGitApp - Mobile
+# dGitApp - Reshaping the way we exchange value...
 
-The ultimate social dApp for your digital assets on Ethereum
-Reshaping the way we exchange value...
+The ultimate social dApp for your digital assets on Ethereum Blockchain
 
 <p>
   <!-- iOS -->
