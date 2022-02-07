@@ -16,23 +16,25 @@ import {Image,
 const LoginScreen = ({navigation}) => {
     const connector = useWalletConnect();
     const [account, setAccount] = useState("");
+    // const url_HomeScreen = "dgit://app/HomeScreen"
 
     const connectWallet = React.useCallback(() => {
-        // alert('connect wallet')
-        navigation.navigate('Home')
         return connector.connect();
     }, [connector]);
     
     useEffect(() => {
         if (connector?.accounts?.length > 0) {
           setAccount(connector.accounts[0])
+          console.log('Log-In')
+          console.log(account)
+          navigation.navigate('Home')
         }
     }, [connector]);
     
-    const killSession = React.useCallback(() => {
-        setAccount("")
-        return connector.killSession();
-    }, [connector]);
+    // const killSession = React.useCallback(() => {
+    //     setAccount("")
+    //     return connector.killSession();
+    // }, [connector]);
     
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

@@ -10,27 +10,17 @@ import * as Linking from 'expo-linking';
 import { RootStackParamList } from '../../types';
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [Linking.createURL('dgit//app')],
   config: {
     screens: {
-      Root: {
-        screens: {
-          TabOne: {
-            screens: {
-              TabOneScreen: 'one',
-            },
-          },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: 'two',
-            },
-          },
+      HomeScreen: {
+        path: "HomeScreen/:connector",
+        parse: {
+          connector: (item) => item,
         },
       },
-      Modal: 'modal',
-      NotFound: '*',
-    },
-  },
+   },
+  }
 };
 
 export default linking;
