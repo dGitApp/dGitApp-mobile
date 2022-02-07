@@ -16,6 +16,7 @@ import {Image,
 const LoginScreen = ({navigation}) => {
     const connector = useWalletConnect();
     const [account, setAccount] = useState("");
+    // const url_HomeScreen = "dgit://app/HomeScreen"
 
     const connectWallet = React.useCallback(() => {
         return connector.connect();

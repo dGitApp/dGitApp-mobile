@@ -15,7 +15,7 @@ import LoginScreen from '../screens/LoginScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import WalletProfileScreen from '../screens/WalletProfileScreen';
-// import LinkingConfiguration from './LinkingConfiguration';
+import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation({ colorScheme }: { readonly colorScheme: ColorSchemeName }): JSX.Element {
   
@@ -48,6 +48,7 @@ export default function Navigation({ colorScheme }: { readonly colorScheme: Colo
   return (
     <NavigationContainer
       // theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      // linking={LinkingConfiguration}
       theme={appTheme}>
       <Stack.Navigator screenOptions={globalStyles}>
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false, headerTitle: '' }} />
@@ -56,7 +57,6 @@ export default function Navigation({ colorScheme }: { readonly colorScheme: Colo
         <Stack.Screen name="WalletProfile" component={WalletProfileScreen} />
         <Stack.Screen name="AddChat" component={AddChatScreen} />
         <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
-        <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,13 +1,10 @@
 import { AntDesign } from '@expo/vector-icons';
 import React, {useLayoutEffect} from 'react';
 import {Platform, Pressable, SafeAreaView, StyleSheet, Text} from 'react-native';
-import { useWalletConnect } from '@walletconnect/react-native-dapp';
 
 
 
 export default function SettingsScreen({navigation}) {
-
-  const connector = useWalletConnect();
 
   useLayoutEffect (() => {
     navigation.setOptions({
