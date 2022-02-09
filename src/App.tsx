@@ -6,6 +6,10 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
+import { MetaMaskProvider } from "metamask-react";
+import WalletConnectProvider from '@walletconnect/react-native-dapp';
+
+
 // import AuthContext from "./contexts/Authentication";
 
 export default function App(): JSX.Element {
@@ -16,10 +20,12 @@ export default function App(): JSX.Element {
     return null;
   } else {
     return (
+      <MetaMaskProvider>
           <SafeAreaProvider>
             <Navigation colorScheme={colorScheme} />
             <StatusBar style = {"dark"}/>
-        </SafeAreaProvider>
+          </SafeAreaProvider>
+      </MetaMaskProvider>
     );
   }
 }

@@ -10,32 +10,69 @@ import {Image,
         TouchableWithoutFeedback,
         View} from 'react-native'
 
+
 // import AuthContext from "../contexts/Authentication";
 
 
-const LoginScreen = ({navigation}) => {
-    const connector = useWalletConnect();
-    const [account, setAccount] = useState("");
-    // const url_HomeScreen = "dgit://app/HomeScreen"
 
-    const connectWallet = React.useCallback(() => {
-        return connector.connect();
-    }, [connector]);
-    
+
+const LoginScreen = ({navigation}) => {
+    // const connector = useWalletConnect();
+
+    const [installed, setInstalled] = useState(false);
     useEffect(() => {
-        if (connector?.accounts?.length > 0) {
-          setAccount(connector.accounts[0])
-          console.log('Log-In')
-          console.log(account)
-          navigation.navigate('Home')
-        }
-    }, [connector]);
+       if (window.ethereum) {
+          setInstalled(true);
+       }
+       console.log(installed)
+    }, []);
+
+    // console.log(status)
+    // console.log(chainId)
+
+    // const url_HomeScreen = "dgit://app/HomeScreen"
+    
+    // useEffect(() => {
+    //     if (connector?.accounts?.length > 0) {
+    //       setAccount(connector.accounts[0])
+    //       console.log('Log-In')
+    //       console.log(account)
+    //       navigation.navigate('Home')
+    //     }
+    // }, [connector]);
     
     // const killSession = React.useCallback(() => {
     //     setAccount("")
     //     return connector.killSession();
     // }, [connector]);
-    
+
+    // if (window.ethereum) {
+    //     handleEthereum();
+    //   } else {
+    //     window.addEventListener('ethereum#initialized', handleEthereum, {
+    //       once: true,
+    //     });
+      
+    //     // If the event is not dispatched by the end of the timeout,
+    //     // the user probably doesn't have MetaMask installed.
+    //     setTimeout(handleEthereum, 3000); // 3 seconds
+    //   }
+      
+    //   function handleEthereum() {
+    //     const { ethereum } = window;
+    //     if (ethereum && ethereum.isMetaMask) {
+    //       console.log('Ethereum successfully detected!');
+    //       // Access the decentralized web!
+    //     } else {
+    //       console.log('Please install MetaMask!');
+    //     }
+    // }
+
+    // const connectWallet = React.useCallback(() => {
+    //     await ethereum.request({ method: 'eth_requestAccounts' });
+    // }, []);
+
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.page}>
@@ -43,7 +80,7 @@ const LoginScreen = ({navigation}) => {
                     <Image source={require('../assets/icons/dGitIconGreen.png')} style={styles.icon} />
                 </View>
                 <View style={styles.ButtonContainer}>
-                <Pressable style={styles.button} onPress={connectWallet}>
+                <Pressable style={styles.button} onPress={() => {alert('connect')}}>
                     <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black' }}> Connect Wallet </Text>
                 </Pressable>
                 </View>  
